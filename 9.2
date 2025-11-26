@@ -1,0 +1,52 @@
+internal class Phone
+{
+    public string brand;
+    public int batteryLevel;
+    public string Brand
+    {
+        get { return brand; }
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                Console.WriteLine("Error");                 
+            }
+            else
+            {
+                brand = value;
+            }
+        }
+    }
+    public int BatteryLevel
+    {
+        get { return batteryLevel; }
+        set
+        {
+            if (value < 0 && value > 100)
+            {
+                Console.WriteLine("error");                   
+            }
+            else
+            {
+                batteryLevel = value;
+            }
+        }
+    }
+    public Phone(string brand, int batteryLevel)
+    {
+        Brand = brand;
+        BatteryLevel = batteryLevel;
+    }
+    public void UsePhone()
+    {
+        int Level = batteryLevel - 10;
+        Console.WriteLine($"Телефон {brand}, заряд: {Level}%");
+    }
+
+}
+static void Main(string[] args)
+ {
+     Phone phone = new Phone("Aplle", 100);
+     phone.UsePhone();
+     phone.UsePhone();
+ }
