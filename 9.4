@@ -1,0 +1,36 @@
+  internal class Circle
+{
+       
+    public  double radius;
+       
+    public double Radius
+    {
+        get { return radius; }
+        set
+        {
+            if (value < 0 )
+            {
+                Console.WriteLine("error");                   
+            }
+            else
+            {
+                radius = value;
+            }
+        }
+    }
+        
+    public Circle(double radius )
+    {
+        Radius = radius;
+    }
+    public void GetArea()
+    {
+      double sum = Math.PI* radius*radius;
+        Console.WriteLine($"Площядь круга: {sum}");
+    }
+}                                              
+static void Main(string[] args)
+ {
+     Circle circle = new Circle(5);
+     circle.GetArea();
+ }
