@@ -1,0 +1,75 @@
+
+  internal class BankAccount
+{
+    public string owner;
+    public  double balance;
+    public string Owner
+    {
+        get { return owner; }
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                Console.WriteLine("Error");                 
+            }
+            else
+            {
+                owner = value;
+            }
+        }
+    }
+    public double Balance
+    {
+        get { return balance; }
+        set
+        {
+            if (value < 0 )
+            {
+                Console.WriteLine("error");                   
+            }
+            else
+            {
+                balance = value;
+            }
+        }
+    }
+        
+    public BankAccount(string owner, double balance)
+    {
+        Owner = owner;
+        Balance = balance;
+    }
+    public void Deposit(double sum)
+    {
+        if (sum < 0)
+        {
+            Console.WriteLine("нельзя так сделать");
+        }
+        else
+        {
+            Balance += sum;
+            Console.WriteLine($"{owner}, баланс: {balance}");
+        }
+    }
+    public void Withdraw(double sum)
+    {
+        if (sum < 0 && sum > balance)
+        {
+            Console.WriteLine("недостаточно денег");
+        }
+        else
+        {
+            Balance -= sum;
+            Console.WriteLine($"{owner}, баланс: {balance}");
+        }
+    }
+
+
+}
+static void Main(string[] args)
+ {
+     BankAccount bankAccount = new BankAccount("Соня", 500);
+     bankAccount.Deposit(1000);
+     bankAccount.Withdraw(500);
+     bankAccount.Withdraw(20000);
+ }            
