@@ -1,0 +1,49 @@
+internal class Person
+{
+    public string name;
+    public int age;
+    public string Name
+    {
+        get { return name; }
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                Console.WriteLine("Error");                 
+            }
+            else
+            {
+                name = value;
+            }
+        }
+    }
+    public int Age
+    {
+        get { return age; }
+        set
+        {
+            if (value < 0 && value > 120)
+            {
+                Console.WriteLine("error");                   
+            }
+            else
+            {
+                age = value;
+            }
+        }
+    }
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+    public void SayHello()
+    {
+        Console.WriteLine($"Привет, я {name}, мне {age} лет!»");
+    }
+} 
+static void Main(string[] args)
+{
+    Person person = new Person("Coня", 17);
+    person.SayHello();
+}  
